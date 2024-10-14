@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쉐프 리뷰 워드클라우드</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>쉐프 리뷰 워드클라우드</h1>
+    </header>
+    <main class="container">
+        <a href="/restaurant/" class="back-button">← 목록으로 돌아가기</a>
+        <div class="chef-detail">
+            <div id="chef-info" class="chef-info"></div>
+            <div class="wordcloud-container">
+                <div id="wordcloud"></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 흑백요리사 리뷰 워드클라우드</p>
+    </footer>
+    <script>
+        const chefs = JSON.parse('{{ chef |escapejs }}');
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
+    <script src="{% static 'js/detail.js' %}"></script>
+</body>
+</html>
