@@ -18,7 +18,8 @@ class Restaurant(models.Model):
 class Review(models.Model):
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, related_name='reviews')  # 레스토랑과 연결
     review_text = models.TextField(verbose_name='리뷰', null=False)
-
+    rating = models.PositiveIntegerField(verbose_name='평점', null=False)
+    
     def __str__(self):
         return f'Review for {self.restaurant}'
 
