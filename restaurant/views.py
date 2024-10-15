@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
 from django.http import HttpResponse
 from django.conf import settings
@@ -50,7 +50,7 @@ def detail(request, chef_id):
             width=1000,
             height=1000
         ).generate(reviews_text)  # 텍스트로부터 단어 클라우드 생성
-
+        
         # 이미지로 저장
         fig, ax = plt.subplots(figsize=(10, 5))
         ax.imshow(wordcloud, interpolation='bilinear')
@@ -64,3 +64,39 @@ def detail(request, chef_id):
         chef_json['word_cloud'] = image_base64
 
     return render(request, 'restaurant/detail.html', {'chef_info': chef_json})
+
+
+def init(request):
+    try:
+        # JSON 파일 읽기
+        with open(settings.BASE_DIR / 'restaurant' / 'static' / 'json' / 'db_init.json', 'r', encoding='utf-8') as json_file:
+            data = json.load(json_file)
+            
+            # Chef 초기화
+            Chef.objects.all().delete()
+            chefs_data = data.get('chefs')
+            for chef_data in chefs_data:
+                chef, created = Chef.objects.get_or_create(
+                    chef_name=chef_data['chef_name'],
+                    image_url=chef_data['image_url']
+                )
+            chefs = Chef.objects.all().values()
+
+            # Restaurant 초기화
+            Restaurant.objects.all().delete()
+            restaurants_data = data.get('restaurants')
+            for restaurant_data in restaurants_data:
+                chef = Chef.objects.get(chef_name=restaurant_data['chef_name'])
+                Restaurant.objects.get_or_create(
+                    chef=chef,
+                    restaurant_name=restaurant_data['restaurant_name'],
+                    address=restaurant_data['address'],
+                    style=restaurant_data['style'],
+                    url=restaurant_data['url'],
+                    review_count=restaurant_data['review_count'],
+                    description=restaurant_data['description']
+                )
+
+        return redirect('index')
+    except Exception as e:
+        return redirect('index')

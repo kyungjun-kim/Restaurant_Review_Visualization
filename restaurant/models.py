@@ -14,7 +14,8 @@ class Restaurant(models.Model):
     style = models.CharField(max_length=200, verbose_name='스타일', null=False)
     url = models.CharField(max_length=100, verbose_name='catchtable_url', null=False)
     review_count = models.BigIntegerField(verbose_name='리뷰수', null=False)
-
+    description = models.TextField(verbose_name='설명')
+    
     def __str__(self):
         return f'쉐프 : {self.chef.chef_name} / 레스토랑 : {self.restaurant_name}'
 
