@@ -11,4 +11,4 @@ $ python manage.py runserver
     - http://127.0.0.1:8000/restaurant/init
 
 # main화면 확인
-    - 127.0.0.1:8000/restaurant/init
+    - 127.0.0.1:8000/restaurant
