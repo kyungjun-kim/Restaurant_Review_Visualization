@@ -35,6 +35,7 @@
         {
           "chef_name": "최강록",
           "restaurant_name": "식당네오",
+          "restaurant_name_en": "neo_",
           "address": "서울특별시 송파구 삼전로12길 4 1층 101호",
           "url": "https://app.catchtable.co.kr/ct/shop/neo_?type=DINING",
           "review_count": 642,
@@ -44,6 +45,7 @@
         {
           "chef_name": "나폴리 맛피아",
           "restaurant_name": "비아톨레도 파스타바",
+          "restaurant_name_en": "viatoledo",
           "address": "서울특별시 용산구 원효로83길 7-2 1층",
           "url": "https://app.catchtable.co.kr/ct/shop/viatoledo?type=DINING",
           "review_count": 494,
@@ -53,6 +55,7 @@
         {
           "chef_name": "요리하는 돌아이",
           "restaurant_name": "디핀 deepin",
+          "restaurant_name_en": "deepin",
           "address": "서울특별시 중구 퇴계로 411 1층",
           "url": "https://app.catchtable.co.kr/ct/shop/deepin?type=DINING",
           "review_count": 1038,
@@ -62,6 +65,7 @@
         {
           "chef_name": "트리플스타",
           "restaurant_name": "트리드 (trid)",
+          "restaurant_name_en": "trid",
           "address": "서울특별시 강남구 선릉로162길 16 2층",
           "url": "https://app.catchtable.co.kr/ct/shop/trid?type=DINING",
           "review_count": 667,
@@ -71,6 +75,7 @@
         {
           "chef_name": "요리하는 돌아이",
           "restaurant_name": "디핀 옥수",
+          "restaurant_name_en": "deepin_oksu",
           "address": "서울특별시 성동구 독서당로 194 지하 1층",
           "url": "https://app.catchtable.co.kr/ct/shop/deepin_oksu?type=DINING",
           "review_count": 2031,
@@ -80,6 +85,7 @@
         {
           "chef_name": "최현석",
           "restaurant_name": "CHOI. 쵸이닷",
+          "restaurant_name_en": "choidot",
           "address": "서울특별시 강남구 도산대로 457 앙스돔빌딩 3층",
           "url": "https://app.catchtable.co.kr/ct/shop/choidot?type=DINING",
           "review_count": 2066,
@@ -89,6 +95,7 @@
         {
           "chef_name": "철가방 요리사",
           "restaurant_name": "도량",
+          "restaurant_name_en": "dolyang",
           "address": "서울특별시 종로구 자하문로6길 6 백송빌딩 2층 3층",
           "url": "https://app.catchtable.co.kr/ct/shop/dolyang?type=WAITING",
           "review_count": 118,
@@ -98,6 +105,7 @@
         {
           "chef_name": "정지선",
           "restaurant_name": "티엔미미 홍대",
+          "restaurant_name_en": "tianmimihongdae",
           "address": "서울특별시 마포구 양화로 144 MERCURE 앰배서더 HOTEL 홍대 4층",
           "url": "https://app.catchtable.co.kr/ct/shop/tianmimihongdae?type=WAITING",
           "review_count": 85,
@@ -107,6 +115,7 @@
         {
           "chef_name": "히든천재",
           "restaurant_name": "PONO BUONO 포노 부오노",
+          "restaurant_name_en": "ponobouno",
           "address": "서울특별시 강남구 도산대로45길 8-7 2층",
           "url": "https://app.catchtable.co.kr/ct/shop/ponobouno?type=DINING",
           "review_count": 248,
@@ -116,6 +125,7 @@
         {
           "chef_name": "만찢남",
           "restaurant_name": "조광201",
+          "restaurant_name_en": "cho__kwang",
           "address": "서울특별시 송파구 새말로8길 13 2층 201호(문정동)",
           "url": "https://app.catchtable.co.kr/ct/shop/cho__kwang?type=DINING",
           "review_count": 87,
@@ -125,6 +135,7 @@
         {
           "chef_name": "조은주",
           "restaurant_name": "프렌치 터치더스카이",
+          "restaurant_name_en": "touchthe_sky",
           "address": "서울특별시 영등포구 63로 50 63한화생명빌딩 한화금융센터_63",
           "url": "https://app.catchtable.co.kr/ct/shop/touchthe_sky?type=DINING",
           "review_count": 2,
@@ -134,6 +145,7 @@
         {
           "chef_name": "장호준",
           "restaurant_name": "캐비스트리",
+          "restaurant_name_en": "Cavistry",
           "address": "서울특별시 강남구 도산대로37길 21 1층",
           "url": "https://app.catchtable.co.kr/ct/shop/Cavistry?type=DINING",
           "review_count": 416,
@@ -143,6 +155,7 @@
         {
           "chef_name": "최현석",
           "restaurant_name": "달리아 다이닝",
+          "restaurant_name_en": "dahlia_dining",
           "address": "서울특별시 강남구 도산대로45길 14 2층",
           "url": "https://app.catchtable.co.kr/ct/shop/dahlia_dining?type=DINING",
           "review_count": 208,
@@ -152,6 +165,7 @@
         {
           "chef_name": "장호준",
           "restaurant_name": "네기스키야키 압구정점",
+          "restaurant_name_en": "negisgyg",
           "address": "서울특별시 강남구 논현로 854 지하1층 네기스키야키",
           "url": "https://app.catchtable.co.kr/ct/shop/negisgyg?type=DINING",
           "review_count": 686,
@@ -161,6 +175,7 @@
         {
           "chef_name": "셀럽의 셰프",
           "restaurant_name": "부토(BUTO)",
+          "restaurant_name_en": "butohannam",
           "address": "서울특별시 용산구 한남대로27가길 32 지2층",
           "url": "https://app.catchtable.co.kr/ct/shop/butohannam?type=DINING",
           "review_count": 87,
@@ -170,6 +185,7 @@
         {
           "chef_name": "남정석",
           "restaurant_name": "로컬릿x스텔라 고메데이",
+          "restaurant_name_en": "localeatstellagourmetday",
           "address": "서울특별시 성동구 한림말길 33 청훈빌딩",
           "url": "https://app.catchtable.co.kr/ct/shop/localeatstellagourmetday?type=DINING",
           "review_count": 0,
@@ -179,6 +195,7 @@
         {
           "chef_name": "장호준",
           "restaurant_name": "네기 라이브",
+          "restaurant_name_en": "negilive",
           "address": "서울특별시 성동구 성수이로 97 5층",
           "url": "https://app.catchtable.co.kr/ct/shop/negilive?type=DINING",
           "review_count": 448,
@@ -188,6 +205,7 @@
         {
           "chef_name": "원투쓰리",
           "restaurant_name": "본연",
+          "restaurant_name_en": "bornyon",
           "address": "서울특별시 강남구 논현로 742 파티오나인 7층",
           "url": "https://app.catchtable.co.kr/ct/shop/bornyon?type=DINING",
           "review_count": 104,
@@ -197,6 +215,7 @@
         {
           "chef_name": "반찬 셰프",
           "restaurant_name": "마마리마켓&펍",
+          "restaurant_name_en": "vingle_restaurant-mingles",
           "address": "서울특별시 성동구 연무장18길 16",
           "url": "https://app.catchtable.co.kr/ct/shop/vingle_restaurant-mingles?type=DINING",
           "review_count": 425,
@@ -206,24 +225,18 @@
         {
           "chef_name": "황진선",
           "restaurant_name": "진진",
+          "restaurant_name_en": "jinjin",
           "address": "서울특별시 마포구 월드컵북로1길 60 1층 진진",
           "url": "https://app.catchtable.co.kr/ct/shop/jinjin?type=WAITING",
           "review_count": 75,
           "style": "중식",
           "description": "2017-2019 미쉐린 1스타 황진선 셰프와 왕육성 셰프의 고품격 차이니즈 레스토랑"
         },
-        {
-          "chef_name": "최현석",
-          "restaurant_name": "중앙감속기",
-          "address": "서울특별시 성동구 성수일로6길 7-1 1층",
-          "url": "https://app.catchtable.co.kr/ct/shop/tyioop77?type=DINING",
-          "review_count": 874,
-          "style": "퓨전음식",
-          "description": "대한민국 대표 스타셰프 최현석 셰프와 김용성 셰프의 차이니즈 이탈리안 퓨전 레스토랑"
-        },
+        
         {
           "chef_name": "장호준",
           "restaurant_name": "모던오뎅 신사점",
+          "restaurant_name_en": "modern_5",
           "address": "서울특별시 강남구 도산대로17길 10 1층",
           "url": "https://app.catchtable.co.kr/ct/shop/modern_5?type=DINING",
           "review_count": 239,
@@ -233,6 +246,7 @@
         {
           "chef_name": "김도윤",
           "restaurant_name": "윤서울",
+          "restaurant_name_en": "yunseoul",
           "address": "서울특별시 강남구 선릉로 805 W빌딩 1층",
           "url": "https://app.catchtable.co.kr/ct/shop/yunseoul?type=DINING",
           "review_count": 330,
@@ -242,6 +256,7 @@
         {
           "chef_name": "고기 깡패",
           "restaurant_name": "군몽",
+          "restaurant_name_en": "guunmongseoul",
           "address": "서울특별시 용산구 한남대로27가길 15 2층",
           "url": "https://app.catchtable.co.kr/ct/shop/guunmongseoul?type=DINING",
           "review_count": 457,
@@ -251,6 +266,7 @@
         {
           "chef_name": "남정석",
           "restaurant_name": "로컬릿",
+          "restaurant_name_en": "local_eat",
           "address": "서울특별시 성동구 한림말길 33 청훈빌딩 2층",
           "url": "https://app.catchtable.co.kr/ct/shop/local_eat?type=DINING",
           "review_count": 215,
@@ -260,6 +276,7 @@
         {
           "chef_name": "여경래",
           "restaurant_name": "홍보각",
+          "restaurant_name_en": "hongbogak",
           "address": "서울특별시 강남구 봉은사로 130 노보텔 앰배서더 강남 서울 LL층",
           "url": "https://app.catchtable.co.kr/ct/shop/hongbogak?type=DINING",
           "review_count": 319,
@@ -269,6 +286,7 @@
         {
           "chef_name": "최현석",
           "restaurant_name": "중앙가속기",
+          "restaurant_name_en": "centralaccelerator",
           "address": "서울특별시 성동구 성수일로 9 지하 1층 113~114호",
           "url": "https://app.catchtable.co.kr/ct/shop/centralaccelerator?type=DINING",
           "review_count": 67,
@@ -278,6 +296,7 @@
         {
           "chef_name": "안유성",
           "restaurant_name": "가매일식",
+          "restaurant_name_en": "gamajp",
           "address": "광주 서구 상무대로 1104-26",
           "url": "https://app.catchtable.co.kr/ct/shop/gamajp?type=DINING",
           "review_count": 0,
@@ -287,6 +306,7 @@
         {
           "chef_name": "영탉",
           "restaurant_name": "남영탉",
+          "restaurant_name_en": "nychicken",
           "address": "서울특별시 용산구 한강대로80길 12 1층",
           "url": "https://app.catchtable.co.kr/ct/shop/nychicken?type=WAITING",
           "review_count": 30,
@@ -296,6 +316,7 @@
         {
           "chef_name": "장사천재 조사장으로 출연 조서형",
           "restaurant_name": "을지로보석",
+          "restaurant_name_en": "euljiloboseog",
           "address": "서울특별시 중구 마른내로 11-10 3층(저동2가)",
           "url": "https://app.catchtable.co.kr/ct/shop/euljiloboseog?type=DINING",
           "review_count": 24,
@@ -305,6 +326,7 @@
         {
           "chef_name": "야키토리왕",
           "restaurant_name": "야키토리묵",
+          "restaurant_name_en": "yakitorimook",
           "address": "서울특별시 마포구 성미산로 165-1 1층",
           "url": "https://app.catchtable.co.kr/ct/shop/yakitorimook?type=DINING",
           "review_count": 184,
@@ -314,6 +336,7 @@
         {
           "chef_name": "방기수",
           "restaurant_name": "깃든",
+          "restaurant_name_en": "gitdeun_bang",
           "address": "서울특별시 강북구 월계로7나길 46-5 1층",
           "url": "https://app.catchtable.co.kr/ct/shop/gitdeun_bang?type=DINING",
           "review_count": 20,
@@ -323,6 +346,7 @@
         {
           "chef_name": "최지형",
           "restaurant_name": "리북방",
+          "restaurant_name_en": "leebukbang",
           "address": "서울특별시 마포구 마포대로1길 16 A&D빌딩 2층",
           "url": "https://app.catchtable.co.kr/ct/shop/leebukbang?type=DINING",
           "review_count": 630,
@@ -332,6 +356,7 @@
         {
           "chef_name": "정지선",
           "restaurant_name": "티엔미미 강남점",
+          "restaurant_name_en": "tianmimi",
           "address": "서울특별시 서초구 사임당로 143 Cross 143 104-1 104-2 104-3호",
           "url": "https://app.catchtable.co.kr/ct/shop/tianmimi?type=WAITING",
           "review_count": 216,
@@ -341,6 +366,7 @@
         {
           "chef_name": "김도윤",
           "restaurant_name": "면서울",
+          "restaurant_name_en": "myeonseoul",
           "address": "서울특별시 강남구 선릉로 805 W빌딩",
           "url": "https://app.catchtable.co.kr/ct/shop/myeonseoul?type=DINING",
           "review_count": 115,
@@ -350,6 +376,7 @@
         {
           "chef_name": "영탉",
           "restaurant_name": "탄막",
+          "restaurant_name_en": "tanmak",
           "address": "서울특별시 용산구 한강대로84길 5-3 1층 15호",
           "url": "https://app.catchtable.co.kr/ct/shop/tanmak?type=DINING",
           "review_count": 39,
@@ -359,6 +386,7 @@
         {
           "chef_name": "조셉 리저우드",
           "restaurant_name": "Restaurant EVETT",
+          "restaurant_name_en": "evett",
           "address": "서울특별시 강남구 도산대로45길 10-5 LS빌딩 1층",
           "url": "https://app.catchtable.co.kr/ct/shop/evett?type=DINING",
           "review_count": 448,
@@ -368,6 +396,7 @@
         {
           "chef_name": "최지형",
           "restaurant_name": "리북방x스텔라 고메데이",
+          "restaurant_name_en": "leebukbangstellagourmetday",
           "address": "서울특별시 마포구 마포대로1길 16 A&D빌딩",
           "url": "https://app.catchtable.co.kr/ct/shop/leebukbangstellagourmetday?type=DINING",
           "review_count": 0,
@@ -377,6 +406,7 @@
         {
           "chef_name": "간귀",
           "restaurant_name": "키보 에다마메",
+          "restaurant_name_en": "edamame",
           "address": "서울특별시 용산구 한강대로76길 11-40 1층",
           "url": "https://app.catchtable.co.kr/ct/shop/edamame?type=DINING",
           "review_count": 78,
@@ -386,6 +416,7 @@
         {
           "chef_name": "야키토리왕",
           "restaurant_name": "야키토리묵 신사점",
+          "restaurant_name_en": "yakitorimook_sinsa",
           "address": "서울특별시 강남구 강남대로152길 23 지하 1층",
           "url": "https://app.catchtable.co.kr/ct/shop/yakitorimook_sinsa?type=DINING",
           "review_count": 1508,
@@ -395,6 +426,7 @@
         {
           "chef_name": "키친갱스터",
           "restaurant_name": "나우 남영",
+          "restaurant_name_en": "nawoo_more.better",
           "address": "서울특별시 용산구 원효로89길 23 2층",
           "url": "https://app.catchtable.co.kr/ct/shop/nawoo_more.better?type=DINING",
           "review_count": 71,
@@ -404,6 +436,7 @@
         {
           "chef_name": "오세득",
           "restaurant_name": "오팬파이어",
+          "restaurant_name_en": "ohpanfire",
           "address": "제주특별자치도 제주시 조천읍 남조로 1781 제주특별자치도 제주시 조천읍 남조로 1781 1층",
           "url": "https://app.catchtable.co.kr/ct/shop/ohpanfire?type=DINING",
           "review_count": 51,
@@ -413,6 +446,7 @@
         {
           "chef_name": "이모카세 1호",
           "restaurant_name": "즐거운술상",
+          "restaurant_name_en": "happy_table",
           "address": "서울특별시 도봉구 노해로 341 신원리베르텔 117호",
           "url": "https://app.catchtable.co.kr/ct/shop/happy_table?type=DINING",
           "review_count": 0,
@@ -422,6 +456,7 @@
         {
           "chef_name": "안유성",
           "restaurant_name": "광주옥1947",
+          "restaurant_name_en": "gwangjuok1947",
           "address": "광주광역시 서구 상무대로 1104-20",
           "url": "https://app.catchtable.co.kr/ct/shop/gwangjuok1947?type=DINING",
           "review_count": 0,
@@ -431,6 +466,7 @@
         {
           "chef_name": "파브리",
           "restaurant_name": "파브리키친",
+          "restaurant_name_en": "fabrikitchen",
           "address": "서울특별시 용산구 한강대로15길 23-6 1층",
           "url": "https://app.catchtable.co.kr/ct/shop/fabrikitchen?type=DINING",
           "review_count": 0,
@@ -440,6 +476,7 @@
         {
           "chef_name": "남정석",
           "restaurant_name": "그린볼",
+          "restaurant_name_en": "greenball_gangneung",
           "address": "복사",
           "url": "https://app.catchtable.co.kr/ct/shop/greenball_gangneung?type=DINING",
           "review_count": 0,
@@ -449,6 +486,7 @@
         {
           "chef_name": "박준우",
           "restaurant_name": "오쁘띠베르",
+          "restaurant_name_en": "Y2F0Y2hfUHBxNGg5c1hDZDBhdnpGenFpZ05sdz09",
           "address": "서울특별시 종로구 자하문로 47-1",
           "url": "https://app.catchtable.co.kr/ct/shop/Y2F0Y2hfUHBxNGg5c1hDZDBhdnpGenFpZ05sdz09?type=DINING",
           "review_count": 0,
@@ -458,6 +496,7 @@
         {
           "chef_name": "김승민",
           "restaurant_name": "모리노아루요",
+          "restaurant_name_en": "morino_aruyo",
           "address": "제주특별자치도 제주시 애월읍 하소로 769-58",
           "url": "https://app.catchtable.co.kr/ct/shop/morino_aruyo?type=DINING",
           "review_count": 0,

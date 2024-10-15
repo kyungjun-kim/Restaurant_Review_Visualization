@@ -90,6 +90,7 @@ def init(request):
                 Restaurant.objects.get_or_create(
                     chef=chef,
                     restaurant_name=restaurant_data['restaurant_name'],
+                    restaurant_name_en=restaurant_data['restaurant_name_en'],
                     address=restaurant_data['address'],
                     style=restaurant_data['style'],
                     url=restaurant_data['url'],
