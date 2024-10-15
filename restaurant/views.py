@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.conf import settings
 import json
+from django.views.decorators.csrf import csrf_exempt
 
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
@@ -97,7 +98,6 @@ def init(request):
                     review_count=restaurant_data['review_count'],
                     description=restaurant_data['description']
                 )
-
         return redirect('index')
     except Exception as e:
         return redirect('index')
