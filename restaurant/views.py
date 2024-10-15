@@ -4,7 +4,7 @@ from django.http import HttpResponse, JsonResponse
 from django.conf import settings
 import json
 from django.views.decorators.csrf import csrf_exempt
-
+import jpype
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 
@@ -36,6 +36,8 @@ def detail(request, chef_id):
     if not reviews_text.strip():  
         chef_json['word_cloud'] = None  
     else:
+        if not jpype.isJVMStarted():
+            jpype.startJVM()
         # 형태소 분석을 통해 명사 추출
         hannanum = Hannanum()
         nouns = hannanum.nouns(reviews_text)
@@ -86,8 +88,13 @@ def init(request):
             # Restaurant 초기화
             Restaurant.objects.all().delete()
             restaurants_data = data.get('restaurants')
+            
+            for i, r in enumerate(restaurants_data):
+                print("#", str(i), r)
+            i=1
             for restaurant_data in restaurants_data:
                 chef = Chef.objects.get(chef_name=restaurant_data['chef_name'])
+                print(chef)
                 Restaurant.objects.get_or_create(
                     chef=chef,
                     restaurant_name=restaurant_data['restaurant_name'],
@@ -98,6 +105,8 @@ def init(request):
                     review_count=restaurant_data['review_count'],
                     description=restaurant_data['description']
                 )
+                print(str(i), chef.chef_name, restaurant_data['restaurant_name'])
+                i+=1
         return redirect('index')
     except Exception as e:
         return redirect('index')

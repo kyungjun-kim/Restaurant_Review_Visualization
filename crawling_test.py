@@ -17,26 +17,24 @@ import time
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'web_restaurant.settings')
 django.setup()
-from restaurant.models import *
+
 
 # Chrome 드라이버 설정
 options = Options()
-# options.add_argument("--headless")  # 브라우저 창을 띄우지 않고 실행
+options.add_argument("--headless")  # 브라우저 창을 띄우지 않고 실행
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 
-for restaurant in Restaurant.objects.all():
-    print(restaurant.restaurant_name_en)
-
-
-
+start_time = time.time()
+from restaurant.models import *
 # 비동기 코드에서 ORM 호출 허용
 os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-
+Review.objects.all().delete()
 # Restaurant 모델에서 2 곳만 읽어서 테스트
-for restaurant in Restaurant.objects.all()[1:3]:
+i = 1
+for restaurant in Restaurant.objects.all():
     driver.get(f'https://app.catchtable.co.kr/ct/shop/{restaurant.restaurant_name_en}/review?type=DINING&sortingFilter=L')
 
     # 페이지가 로딩될 시간을 기다림
@@ -48,7 +46,7 @@ for restaurant in Restaurant.objects.all()[1:3]:
         while True:
             # 끝까지 스크롤
             driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            time.sleep(0.8)  # 스크롤 후 대기 시간
+            time.sleep(0.7)  # 스크롤 후 대기 시간
 
             # 새로운 높이 계산 후 비교
             new_height = driver.execute_script("return document.body.scrollHeight")
@@ -92,10 +90,11 @@ for restaurant in Restaurant.objects.all()[1:3]:
                     review_text=review['content'],
                     review_category=review['rating']
                 )
-        print(restaurant)
+        print(str(i),restaurant)
+        i+=1
     except Exception as e:
         print(f"오류 발생: {e}")
 driver.quit()
-
-
-
+end_time = time.time()
+execution_time = end_time - start_time
+print(f"코드 수행 시간: {execution_time:.6f}초")
