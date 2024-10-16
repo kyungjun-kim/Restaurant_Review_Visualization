@@ -4,3 +4,4 @@ django
 selenium
 konlpy
 webdriver-manager
+bs4
