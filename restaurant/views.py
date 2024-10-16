@@ -58,7 +58,7 @@ def detail(request, chef_id):
     buf.seek(0)
     plot_base64 = base64.b64encode(buf.read()).decode('utf-8')
     chef_json['bar_plot'] = plot_base64  # Base64 문자열 저장
-
+    
     chef_json['word_cloud_good'] = make_wordcloud(good_reviews_text, font_path)
     chef_json['word_cloud_bad'] = make_wordcloud(bad_reviews_text, font_path)
 

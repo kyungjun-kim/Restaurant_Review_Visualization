@@ -1,5 +1,7 @@
 
 from wordcloud import WordCloud
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 # 문장에서 명사를 추출하는 형태소 분석 라이브러리
@@ -17,7 +19,10 @@ def make_wordcloud(reviews_text, font_path):
       hannanum = Hannanum()
       nouns = hannanum.nouns(reviews_text)
       words = [noun for noun in nouns if len(noun) > 1]
-      
+
+      if not words:
+          return None
+
       # WordCloud 생성
       wordcloud = WordCloud(
           font_path= font_path,
