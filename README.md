@@ -11,8 +11,8 @@ $ python manage.py runserver
     - http://127.0.0.1:8000/restaurant/init
  
 # 크롤링 방법
-- crawling.py 실행 -> 리뷰 제외한 식당 데이터 DB에 입력
-- ReviewCrawl.py 실행 -> 리뷰 데이터 DB에 입력
+- crawling.py 실행 -> 리뷰 제외한 식당 데이터 DB에 입력 (약 8분 소요)
+- ReviewCrawl.py 실행 -> 리뷰 데이터 DB에 입력 (약 25분 소요)
 - **두 코드 순서대로 실행하시면 됩니다.**
 
 # main화면 확인
