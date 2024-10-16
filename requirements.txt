@@ -1,1 +1,5 @@
-
+wordcloud
+matplotlib
+django
+selenium
+konlpy
