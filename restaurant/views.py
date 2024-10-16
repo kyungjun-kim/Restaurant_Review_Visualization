@@ -5,6 +5,8 @@ from django.conf import settings
 import json
 from django.views.decorators.csrf import csrf_exempt
 import jpype
+import matplotlib
+matplotlib.use('agg')
 import matplotlib.pyplot as plt
 from matplotlib import font_manager
 from wordcloud import WordCloud
@@ -53,7 +55,6 @@ def detail(request, chef_id):
     
     buf = io.BytesIO()
     plt.savefig(buf, format='png', bbox_inches='tight')
-   
     plt.close(fig)
     buf.seek(0)
     plot_base64 = base64.b64encode(buf.read()).decode('utf-8')
