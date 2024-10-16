@@ -48,7 +48,7 @@ def getElements(link) :
 def get_res_info(target_text) :
     
     #해당 페이지에 방문한 식당 데이터 추가
-    name_chef = getElement('j8dkby0').text.split("\n")[0].split("로 출연")[-1].stirp("한 ")
+    name_chef = getElement('j8dkby0').text.split("\n")[0].split("로 출연")[-1].strip("한 ")
     try :
         nick_name = getElement('j8dkby0').text.split("\n")[0].split("로 출연한 ")[0].strip("으")
     except :
