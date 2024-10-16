@@ -26,7 +26,7 @@ def make_wordcloud(reviews_text, font_path):
             background_color='white',
             width=500,
             height=500
-        ).generate(words)  # 텍스트(빈도 1 초과인 명사)로부터 단어 클라우드 생성
+        ).generate(','.join(words))  # 텍스트(빈도 1 초과인 명사)로부터 단어 클라우드 생성
 
         # 이미지로 저장
         fig, ax = plt.subplots(figsize=(5, 5))
