@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>쉐프 리뷰 워드클라우드</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <style>
-
-    </style>
 </head>
 <body>
     <header>
@@ -16,23 +13,47 @@
     </header>
     <main class="container">
         <a href="/restaurant/" class="back-button">← 목록으로 돌아가기</a>
-        <div class="chef-detail">
-            <div id="chef-info" class="chef-info">
-                <img src="{{ chef_info.image_url }}" alt="{{ chefs.chef_name }}">
-                <h2> {{chef_info.chef_name}}</h2>
+
+        <!-- 그리드 컨테이너 시작 -->
+        <div class="grid-container">
+            <!-- 그리드 아이템: 쉐프 상세 정보 -->
+            <div class="grid-item chef-detail">
+                <div id="chef-info" class="chef-info">
+                    <img src="{{ chef_info.image_url }}" alt="{{ chef_info.chef_name }}">
+                    <h2>{{ chef_info.chef_name }}</h2>
+                    <p>식당 (선택버튼)</p>
+                    <p>상세내용</p>
+                    <p>주소</p>
+                    <p>메뉴</p>
+                </div>
             </div>
-            <div class="wordcloud-container">
-                <div id="wordcloud">
-                    <img src="data:image/png;base64,{{ chef_info.word_cloud }}" alt="Word Cloud">
+
+            <!-- 그리드 아이템: 바 플롯 -->
+            <div class="grid-item bar-plot">
+                <img src="data:image/png;base64,{{ chef_info.bar_plot }}" alt="Bar Plot">
+            </div>
+
+            <!-- 그리드 아이템: 워드클라우드 컨테이너 -->
+            <div class="grid-item wordcloud-container">
+                <div class="wordcloud-goodreview-container">
+                    <h2>좋은 리뷰</h2>
+                    <img src="data:image/png;base64,{{ chef_info.word_cloud_good }}" alt="Good Review Word Cloud">
+                </div>
+                <div class="wordcloud-badreview-container">
+                    <h2>나쁜 리뷰</h2>
+                    <img src="data:image/png;base64,{{ chef_info.word_cloud_bad }}" alt="Bad Review Word Cloud">
                 </div>
             </div>
         </div>
+        <!-- 그리드 컨테이너 끝 -->
+        
+        
     </main>
     <footer>
-        <p>&copy; 2023 흑백요리사 리뷰 워드클라우드</p>
+        <p>&copy; 2024 흑백요리사 리뷰 워드클라우드</p>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.min.js"></script>
-    <script src="{% static 'js/detail.js' %}"></script>
+    <script src="{% static 'js/detail.js' %}"></script> -->
 </body>
 </html>
