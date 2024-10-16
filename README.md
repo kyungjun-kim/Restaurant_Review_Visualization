@@ -13,7 +13,7 @@ $ python manage.py runserver
 # 크롤링 방법
 - crawling.py 실행 -> 리뷰 제외한 식당 데이터 DB에 입력
 - ReviewCrawl.py 실행 -> 리뷰 데이터 DB에 입력
-**두 코드 순서대로 실행하시면 됩니다.**
+- **두 코드 순서대로 실행하시면 됩니다.**
 
 # main화면 확인
     - 127.0.0.1:8000/restaurant
