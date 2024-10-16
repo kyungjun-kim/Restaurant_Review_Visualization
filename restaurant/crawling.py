@@ -48,7 +48,7 @@ def getElements(link) :
 def get_res_info(target_text) :
     
     #해당 페이지에 방문한 식당 데이터 추가
-    name_chef = getElement('j8dkby0').text.split("\n")[0].split("로 출연한 ")[-1]
+    name_chef = getElement('j8dkby0').text.split("\n")[0].split("로 출연")[-1].stirp("한 ")
     try :
         nick_name = getElement('j8dkby0').text.split("\n")[0].split("로 출연한 ")[0].strip("으")
     except :
@@ -159,8 +159,6 @@ def visit_and_collect_data(restaurant_element, restaurant_name):
 
         """코드 수정 / collect_chef_and_restaurant 에 수정 (김경준)"""
         tmp = get_res_info(restaurant_name)   
-
-
         chef = driver.find_element(By.CLASS_NAME, "j8dkby2")
         chef_name = chef.text.strip()
         print(f"셰프 이름: {chef_name}")
@@ -190,10 +188,10 @@ def collect_chef_and_restaurant(info_list):
     """쉐프와 레스토랑 정보를 저장하고 레스토랑 객체를 반환"""
     
     # 전달된 정보 리스트 해제
-    (
-        name_chef, nick_name, name_restaurant, name_restaurant_en, loca_res,
+    (name_chef, nick_name, name_restaurant, name_restaurant_en, loca_res,
         link_now, rating, rating_cnt, style_restaurant, desc_restaurant, etc_restaurant
     ) = info_list
+
 
     try:
         # 쉐프 객체 생성 또는 조회
@@ -202,6 +200,8 @@ def collect_chef_and_restaurant(info_list):
             defaults={"image_url": "./default_image.jpeg"}
         )
 
+        print("레스토랑 오브젝트")
+        #print(Restaurant.objects.all())
         # 레스토랑 객체 생성 또는 조회 (모든 필드를 defaults에 포함)
         restaurant, created = Restaurant.objects.get_or_create(
             restaurant_name=name_restaurant,
