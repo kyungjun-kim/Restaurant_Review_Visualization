@@ -23,30 +23,34 @@
                     <h2>{{ chef_info.chef_name }}</h2>
                     <p>식당 (선택버튼)</p>
                     <p>상세내용</p>
+                    <p>{{ chef_info.restaurants.0.description }}</p>
                     <p>주소</p>
+                    <p>{{ chef_info.restaurants.0.address }}</p>
                     <p>메뉴</p>
+                    {% for menu in chef_info.restaurants.0.menus %}
+                    <p>{{ menu.menu_name }} : {{ menu.price }}</p>
+                    {% endfor %}
                 </div>
             </div>
 
             <!-- 그리드 아이템: 바 플롯 -->
             <div class="grid-item bar-plot">
-                <img src="data:image/png;base64,{{ chef_info.bar_plot }}" alt="Bar Plot">
+                <img src="data:image/png;base64,{{ chef_info.restaurants.0.bar_plot }}" alt="Bar Plot">
             </div>
 
             <!-- 그리드 아이템: 워드클라우드 컨테이너 -->
             <div class="grid-item wordcloud-container">
                 <div class="wordcloud-goodreview-container">
                     <h2>좋은 리뷰</h2>
-                    <img src="data:image/png;base64,{{ chef_info.word_cloud_good }}" alt="Good Review Word Cloud">
+                    <img src="data:image/png;base64,{{ chef_info.restaurants.0.reviews.0 }}" alt="Good Review Word Cloud">
                 </div>
                 <div class="wordcloud-badreview-container">
                     <h2>나쁜 리뷰</h2>
-                    <img src="data:image/png;base64,{{ chef_info.word_cloud_bad }}" alt="Bad Review Word Cloud">
+                    <img src="data:image/png;base64,{{ chef_info.restaurants.0.reviews.1 }}" alt="Bad Review Word Cloud">
                 </div>
             </div>
         </div>
         <!-- 그리드 컨테이너 끝 -->
-        
         
     </main>
     <footer>
