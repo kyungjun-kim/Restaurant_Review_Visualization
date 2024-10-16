@@ -4,11 +4,7 @@
 
 # 초기 데이터 설정방법
 - 기존 Model존재 시 삭제, makemigrations, migrate 필요
-```sh
-$ python manage.py runserver
-```
-- url접속
-    - http://127.0.0.1:8000/restaurant/init
+- init_db.py 실행 (이후 크롤링 수행)
  
 # 크롤링 방법
 - crawling.py 실행 -> 리뷰 제외한 식당 데이터 DB에 입력 (약 8분 소요)
