@@ -26,6 +26,10 @@ def make_wordcloud(reviews_text, font_path):
         nouns = hannanum.nouns(reviews_text)
         words = [noun for noun in nouns if len(noun) > 1]
         
+        # 리뷰 없는 경우 예외처리
+        if len(''.join(words).strip()) == 0:
+            words = ["리뷰X"]
+
         # WordCloud 생성
         wordcloud = WordCloud(
             font_path= font_path,

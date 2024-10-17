@@ -1,21 +1,25 @@
 
-function renderChefInfo(chefs) {
-    const chefInfo = document.getElementById('chef-info');
-    chefInfo.innerHTML = `
-        <img src="${chefs.image_url}" alt="${chefs.chef_name}">
-        <h2>${chefs.chef_name}</h2>
-    `;
+
+function changeView(index){
+    containers = document.getElementsByClassName("grid-container")
+    for(var i = 0 ; i<containers.length; i++){
+        if(i == index){
+            containers[i].classList.remove('hidden');
+        }else{
+            containers[i].classList.add('hidden');
+        }
+    }
+
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const chefId = parseInt(urlParams.get('id'));
-    const chef = chefs;
 
-    if (chef) {
-        renderChefInfo(chef);
-        
-    } else {
-        document.getElementById('chef-info').innerHTML = "<p>쉐프를 찾을 수 없습니다.</p>";
+document.addEventListener('DOMContentLoaded', () => {
+    const change_buttons = document.querySelectorAll('.change-button');
+    change_buttons.forEach((button, index) => {
+        button.addEventListener('click', ()=> changeView(index));
+    });
+    const containers = document.getElementsByClassName("grid-container")
+    for(var i = 1 ; i<containers.length; i++){
+        containers[i].classList.add('hidden');
     }
 });
