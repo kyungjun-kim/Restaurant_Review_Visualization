@@ -11,23 +11,63 @@ body {
 .container {
     max-width: 1200px; /* 원하는 최대 너비를 설정 */
     margin: 0 auto;
-    padding: 20px;
+    padding: 15px;
 }
 h1 {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 /* 뒤로가기 버튼 */
-
-.back-button {
+/* 다른 식당 선택 버튼 */
+.back-button, .another-restaurant {
     display: inline-block;
     padding: 10px 20px;
     background-color: #333;
     color: #fff;
     text-decoration: none;
     border-radius: 4px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    /* transition: background-color 0.3s ease; */
+}
+
+.back-button:hover, .another-restaurant:hover {
+    background-color: #666; /* 호버 시 조금 더 밝은 색상 */
+}
+
+/* 숨겨진 상태 */
+/* 레스토랑 목록 항상 보이게 하기 */
+.restaurant-list {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-top: 10px;
+    max-width: 300px;
+}
+
+.restaurant-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.restaurant-list li {
+    margin-bottom: 15px;
+}
+
+.restaurant-list li a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 15px;
+    display: block;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.restaurant-list li a:hover {
+    background-color: #ddd;
+    color: #000;
 }
 
 /* 변경 버튼 */
@@ -48,22 +88,24 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 2fr; /* 좌측 1열, 우측 2열 비율 */
     grid-template-rows: auto 1fr; /* 상단 자동, 하단 균등하게 */
-    gap: 20px;
-    padding: 20px;
+    gap: 15px;
+    padding: 15px;
 }
 
 /* 그리드 아이템 기본 스타일 */
 .grid-item {
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
-.grid-item:hover {
-    transform: translateY(-5px); /* 호버 시 살짝 위로 이동하는 효과 */
+
+.grid-item:hover { 
+    transform: translateY(-3px); /*호버 시 살짝 위로 이동하는 효과*/
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); /*호버 시 그림자 효과를 살짝 강화*/
 }
 
 /* 반응형 레이아웃 */
@@ -102,13 +144,13 @@ h1 {
     transition: transform 0.3s ease;
 }
 
-.chef-card:hover {
+/* .chef-card:hover {
     transform: translateY(-5px);
-}
+} */
 
 .chef-card img {
-    width: 100%;
-    height: 200px;
+    width: 275.52px;
+    height: 358.758px;
     object-fit: cover;
 }
 
@@ -157,11 +199,11 @@ h1 {
 /* 쉐프 정보 카드 */
 .chef-detail {
     grid-column: 1 / 2; /* 첫 번째 열 */
-    grid-row: 1 / 3; /* 상하단 모두 차지 */
+    grid-row: 1 / 4; /* 상하단 모두 차지 */
     background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -169,57 +211,28 @@ h1 {
 }
 
 .chef-detail img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 250px;
     border-radius: 50%;
     margin-bottom: 20px;
 }
 
-
-
 /* barplot 표현하기 */
-
 .bar-plot {
-    grid-column: 2 / 3; /* 두 번째 열 */
+    grid-column: 2 / 4; /* 두 번째 열 */
     grid-row: 1 / 2; /* 첫 번째 행 */
     background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
 }
 
 .bar-plot img {
     width: 100%;
-    max-width: 800px;
+    max-width: 750px;
     height: auto;
-}
-
-/* 워드클라우드 컨테이너 */
-.wordcloud-container {
-    grid-column: 2 / 3; /* 두 번째 열 */
-    grid-row: 2 / 3; /* 두 번째 행 */
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.wordcloud-goodreview-container, 
-.wordcloud-badreview-container {
-    background-color: #fff;
-    flex: 1;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.wordcloud-goodreview-container img, 
-.wordcloud-badreview-container img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
 }
 
 /* 반응형 레이아웃 */
@@ -248,34 +261,34 @@ h1 {
     }
 }
 
-/* 뒤로가기 버튼 */
-
+/* 워드클라우드 컨테이너 */
 .wordcloud-container {
-    margin-top: 200px;
-    display: flex; /* 내부 컨테이너를 가로로 배치 */
+    grid-column: 2 / 4; /* 두 번째 열 */
+    grid-row: 2 / 3; /* 두 번째 행 */
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
 }
 
-.wordcloud-inner-container {
-    display: flex; /* 두 워드클라우드를 나란히 배치 */
-    justify-content: space-between; /* 사이 간격을 동등하게 */
-    width: 100%; /* 전체 너비 차지 */
-}
-
-.wordcloud-goodreview-container,
+/* 두 워드클라우드의 공통 스타일 */
+.wordcloud-goodreview-container, 
 .wordcloud-badreview-container {
-    flex: 1; /* 두 컨테이너가 같은 비율로 차지하도록 */
-    background-color: #fff; /* 배경색 */
-    border-radius: 8px; /* 모서리 둥글게 */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
-    padding: 20px; /* 내부 여백 */
-    margin: 0 10px; /* 좌우 간격 */
+    background-color: #fff;
+    flex: 1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 0 5px;
 }
 
-#wordcloud-goodreview,
-#wordcloud-badreview {
-    width: 50%; /* 이미지가 컨테이너의 너비를 차지하도록 */
-    height: 400px; /* 높이 설정 */
+.wordcloud-goodreview-container img, 
+.wordcloud-badreview-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
+
 
 .controller{
     display: inline-block;
