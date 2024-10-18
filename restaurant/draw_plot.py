@@ -91,7 +91,7 @@ def menu_price_plot(menu, price, font_path):
     df = pd.DataFrame({"menu":menu, "price":price})
     df_sorted = df.sort_values("price")
 
-    fig, ax = plt.subplots(figsize=(12,4))
+    fig, ax = plt.subplots(figsize=(12,6))
     bar_plot = ax.barh("menu", "price", data=df_sorted)
     ax.set_yticklabels(df_sorted["menu"], fontproperties=font_prop)
     ax.set_title('메뉴 가격', fontproperties=font_prop)

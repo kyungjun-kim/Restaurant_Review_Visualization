@@ -113,11 +113,12 @@ def make_chef_json(chef_instance):
         # price = [40000, 50000, 70000, 100000, 47000, 39000, 36000, 41000, 38000, 38000]
         menu_name_list = [menu.menu_name for menu in restaurant.menus.all()]
         price_list = [string_to_amount(menu.price) for menu in restaurant.menus.all()]
-
-        
-        for menu_price in menus:
-            menu_name_list.append(menu_price["menu_name"])
-            price_list.append(menu_price["price"])
+        menu_dict = dict(sorted(zip(menu_name_list,price_list), key=lambda x: x[1],reverse=True)[:5])
+        menu_name_list = list(menu_dict.keys())
+        price_list = list(menu_dict.values())
+        # for menu_price in menus:
+        #     menu_name_list.append(menu_price["menu_name"])
+        #     price_list.append(menu_price["price"])
         #barh_plot
         menu_price_bar_plot = menu_price_plot(menu_name_list, price_list, font_path)
 

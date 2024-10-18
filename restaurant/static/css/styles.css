@@ -230,7 +230,7 @@ h1 {
 .bar-plot-menu img {
     width: 100%;
     max-width: 750px;
-    height: auto;
+    height: 80%;
 }
 
 .bar-plot-price img {
