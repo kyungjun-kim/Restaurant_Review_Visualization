@@ -111,8 +111,10 @@ def make_chef_json(chef_instance):
         # 메뉴 가격
         # menu_name = ["딤섬 SET", "티엔 SET", "미미 SET", "여명 SET", "티엔미미철판볶음", "어향완자가지", "마라크림새우", "철판 유산슬", "배추찜", "산라탕"]
         # price = [40000, 50000, 70000, 100000, 47000, 39000, 36000, 41000, 38000, 38000]
-        menu_name_list = []
-        price_list = []
+        menu_name_list = [menu.menu_name for menu in restaurant.menus.all()]
+        price_list = [string_to_amount(menu.price) for menu in restaurant.menus.all()]
+
+        
         for menu_price in menus:
             menu_name_list.append(menu_price["menu_name"])
             price_list.append(menu_price["price"])
@@ -128,7 +130,8 @@ def make_chef_json(chef_instance):
             "description": restaurant.description,
             "menus": menus,
             "reviews": reviews,
-            "bar_plot": plot_base64
+            "bar_plot": plot_base64,
+            "price_plot":menu_price_bar_plot
         }
         chef_json["restaurants"].append(restaurant_data)
 
