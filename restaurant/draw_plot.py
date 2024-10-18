@@ -20,7 +20,7 @@ font_path = os.path.join('restaurant/static/fonts/D2Coding-Ver1.3.2-20180524.ttc
 
 
 def make_wordcloud(reviews_list:List[str], font_path:str, num_each_fold:int):
-    if not reviews_list.strip():  
+    if not reviews_list:
         return None
     else:
         # 형태소 분석을 통해 명사 추출
@@ -30,7 +30,8 @@ def make_wordcloud(reviews_list:List[str], font_path:str, num_each_fold:int):
         for i in range(total_num//num_each_fold + 1):
             reviews_text = ""
             for s in reviews_list[i*num_each_fold:(i+1)*num_each_fold]:
-                reviews_text += s[0] + ' '
+                if s:
+                    reviews_text += s[0] + ' '
             nouns = hannanum.nouns(reviews_text)
             noun_list.extend(nouns)
         
