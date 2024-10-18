@@ -19,6 +19,7 @@ from restaurant.models import *
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 font_path = os.path.join('restaurant/static/fonts/D2Coding-Ver1.3.2-20180524.ttc')
+stopwords_path = os.path.join('restaurant/static/txt/stopwords.txt')
 
 
 def make_chef_json(chef_instance):
@@ -109,17 +110,11 @@ def make_chef_json(chef_instance):
         #plot_base64 = "바그래프"
         
         # 메뉴 가격
-        # menu_name = ["딤섬 SET", "티엔 SET", "미미 SET", "여명 SET", "티엔미미철판볶음", "어향완자가지", "마라크림새우", "철판 유산슬", "배추찜", "산라탕"]
-        # price = [40000, 50000, 70000, 100000, 47000, 39000, 36000, 41000, 38000, 38000]
         menu_name_list = [menu.menu_name for menu in restaurant.menus.all()]
         price_list = [string_to_amount(menu.price) for menu in restaurant.menus.all()]
         menu_dict = dict(sorted(zip(menu_name_list,price_list), key=lambda x: x[1],reverse=True)[:5])
         menu_name_list = list(menu_dict.keys())
         price_list = list(menu_dict.values())
-        # for menu_price in menus:
-        #     menu_name_list.append(menu_price["menu_name"])
-        #     price_list.append(menu_price["price"])
-        #barh_plot
         menu_price_bar_plot = menu_price_plot(menu_name_list, price_list, font_path)
 
         restaurant_data = {

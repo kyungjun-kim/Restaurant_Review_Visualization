@@ -11,17 +11,21 @@ from konlpy.tag import Hannanum
 import io, os, sys
 import base64
 
-from typing import List
+from typing import List, Union
 from collections import Counter
 from restaurant.models import *
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 font_path = os.path.join('restaurant/static/fonts/D2Coding-Ver1.3.2-20180524.ttc')
 
 
-def make_wordcloud(reviews_list: List[str], font_path: str, num_each_fold: int) -> str:
-    
+def make_wordcloud(reviews_list: List[str], font_path: str, num_each_fold: int, stopwords_path:Union[str, None]=None) -> Union[str, None]:
     if not reviews_list:
         return None
+    
+    if stopwords_path:
+        stopwords = open(stopwords_path, 'r')
+        stopwords_list = [line.split('\n')[0] for line in stopwords.readlines()]
+        stopwords.close()
 
     # 형태소 분석을 통해 명사 추출 및 카운팅
     hannanum = Hannanum()
@@ -37,7 +41,9 @@ def make_wordcloud(reviews_list: List[str], font_path: str, num_each_fold: int) 
                 reviews_text += s + ' ' 
             
         nouns = hannanum.nouns(reviews_text)
-        filtered_nouns = [noun for noun in nouns if len(noun) > 1]  
+        filtered_nouns = [noun for noun in nouns if len(noun) > 1]
+        if stopwords_path:
+            filtered_nouns = [nouns for nouns in filtered_nouns if nouns not in stopwords_list]
         noun_counter.update(filtered_nouns) 
 
     
@@ -85,8 +91,10 @@ def avg_price_plot(mean_restaurant_price, this_restaurant_price, font_path):
     return plot_base64
 
 
-def menu_price_plot(menu, price, font_path):
+def menu_price_plot(menu, price, font_path, top_k=10):
     font_prop = font_manager.FontProperties(fname=font_path)
+    menu = menu[:top_k]
+    price = price[:top_k]
 
     df = pd.DataFrame({"menu":menu, "price":price})
     df_sorted = df.sort_values("price")
