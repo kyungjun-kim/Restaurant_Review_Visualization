@@ -23,12 +23,13 @@ class Restaurant(models.Model):
 class Review(models.Model):
     REVIEW_CHOICES = [
         ('good', 'Good Review'),
-        ('bad', 'Bad Review')
+        ('bad', 'Bad Review'),
+        ('neutral', 'Neutral Review'),
     ]
 
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE, related_name='reviews')  # 레스토랑과 연결
     review_text = models.TextField(verbose_name='리뷰', null=False)
-    review_category = models.CharField(max_length=4, choices=REVIEW_CHOICES, default='good', verbose_name='리뷰 종류')
+    review_category = models.CharField(max_length=8, choices=REVIEW_CHOICES, default='neutral', verbose_name='리뷰 종류')
 
     def __str__(self):
         return f'{self.restaurant.restaurant_name} - {self.get_review_category_display()}'

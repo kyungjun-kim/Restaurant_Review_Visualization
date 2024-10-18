@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 20000  # 리뷰 데이터 삭제 용도로 크기 조정
 # Application definition
 
 INSTALLED_APPS = [

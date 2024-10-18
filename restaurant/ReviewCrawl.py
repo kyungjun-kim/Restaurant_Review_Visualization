@@ -91,7 +91,7 @@ def collect_reviews(restaurant):
         for rating, content in zip(ratings, contents):
             # rating 값 정수로 버림
             rating_value = float(rating.text)
-            review_type = 'good' if rating_value == 5 else 'bad'
+            review_type = 'good' if rating_value == 5 else 'bad' if rating_value < 3 else 'neutral' # 평점 기준 수정
             review_text = clean_review_text(content.get_attribute("innerHTML").strip())
 
             review_data = {

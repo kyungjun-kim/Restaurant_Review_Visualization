@@ -243,6 +243,7 @@ def collect_menus(restaurant):
             menu_tab = WebDriverWait(driver, 10).until(
                 EC.element_to_be_clickable((By.XPATH, '//*[@id="wrapperDiv"]/nav/ul/li[2]/a'))   # 예외 처리
             )
+            time.sleep(2)
 
         menu_tab.click()  # 메뉴 탭 클릭
         print(f"'{restaurant.restaurant_name}'의 메뉴 탭 클릭 성공")
@@ -319,7 +320,7 @@ def collect_reviews(restaurant_name):
 
             # 평점에 따라 카테고리 분류
             rating_value = float(rating)
-            review_category = 'good' if rating_value >= 4 else 'bad'
+            review_category = 'good' if rating_value == 5 else 'bad' if rating_value < 3 else 'neutral'
 
             # HTML 정제 후 저장
             review_text = clean_html_text(content)
