@@ -1,4 +1,3 @@
-
 from wordcloud import WordCloud
 import matplotlib
 matplotlib.use('Agg')
@@ -13,53 +12,59 @@ import io, os, sys
 import base64
 
 from typing import List
-
+from collections import Counter
 from restaurant.models import *
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 font_path = os.path.join('restaurant/static/fonts/D2Coding-Ver1.3.2-20180524.ttc')
 
 
-def make_wordcloud(reviews_list:List[str], font_path:str, num_each_fold:int):
+def make_wordcloud(reviews_list: List[str], font_path: str, num_each_fold: int) -> str:
+    
     if not reviews_list:
         return None
-    else:
-        # 형태소 분석을 통해 명사 추출
-        hannanum = Hannanum()
-        noun_list = []
-        total_num = len(reviews_list)
-        for i in range(total_num//num_each_fold + 1):
-            reviews_text = ""
-            for s in reviews_list[i*num_each_fold:(i+1)*num_each_fold]:
-                if s:
-                    reviews_text += s[0] + ' '
-            nouns = hannanum.nouns(reviews_text)
-            noun_list.extend(nouns)
+
+    # 형태소 분석을 통해 명사 추출 및 카운팅
+    hannanum = Hannanum()
+    noun_counter = Counter()
+    total_num = len(reviews_list)
+
+    for i in range((total_num + num_each_fold - 1) // num_each_fold): 
+        reviews_text = ""
         
-        words = [noun for noun in noun_list if len(noun) > 1]
-        
-        # 리뷰 없는 경우 예외처리
-        if len(''.join(words).strip()) == 0:
-            words = ["리뷰X"]
+        # 슬라이싱할 때 리스트 크기를 초과하지 않도록 보장
+        for s in reviews_list[i*num_each_fold:min((i+1)*num_each_fold, total_num)]:
+            if s:
+                reviews_text += s + ' ' 
+            
+        nouns = hannanum.nouns(reviews_text)
+        filtered_nouns = [noun for noun in nouns if len(noun) > 1]  
+        noun_counter.update(filtered_nouns) 
 
-        # WordCloud 생성
-        wordcloud = WordCloud(
-            font_path= font_path,
-            background_color='white',
-            width=500,
-            height=500
-        ).generate(','.join(words))  # 텍스트(두 글자 이상의 명사)로부터 단어 클라우드 생성
+    
+    if not noun_counter:
+        noun_counter.update(["리뷰X"])  
 
-        # 이미지로 저장
-        fig, ax = plt.subplots(figsize=(5, 5))
-        ax.imshow(wordcloud, interpolation='bilinear')
-        ax.axis('off')  # 축을 숨김
-        buf = io.BytesIO()
-        plt.savefig(buf, format='png', bbox_inches='tight', pad_inches=0)
-        plt.close(fig)
-        buf.seek(0)
-        image_base64 = base64.b64encode(buf.read()).decode('utf-8')
+    # WordCloud 생성
+    wordcloud = WordCloud(
+        font_path=font_path,
+        background_color='white',
+        width=500,
+        height=500
+    ).generate_from_frequencies(noun_counter)  # 카운터로부터 워드클라우드 생성
 
-        return image_base64
+    # 이미지로 저장
+    fig, ax = plt.subplots(figsize=(5, 5))
+    ax.imshow(wordcloud, interpolation='bilinear')
+    ax.axis('off')  # 축을 숨김
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png', bbox_inches='tight', pad_inches=0)
+    plt.close(fig)
+    buf.seek(0)
+
+    # 이미지를 base64로 인코딩하여 반환
+    image_base64 = base64.b64encode(buf.read()).decode('utf-8')
+
+    return image_base64
 
 
 def avg_price_plot(mean_restaurant_price, this_restaurant_price, font_path):
