@@ -40,9 +40,16 @@
             </div>
 
             <!-- 그리드 아이템: 바 플롯 -->
-            <div class="grid-item bar-plot">
-                <img src="data:image/png;base64,{{ restaurant.bar_plot }}" alt="Bar Plot">
+            <div class = "barplot-container">
+                <div class="grid-item bar-plot-price">
+                    <img src="data:image/png;base64,{{ restaurant.price_plot }}" alt="Menu Bar Plot">
+                </div>
+    
+                <div class="grid-item bar-plot-menu">
+                    <img src="data:image/png;base64,{{ restaurant.bar_plot }}" alt="Price Bar Plot">
+                </div>
             </div>
+            
 
             <!-- 그리드 아이템: 워드클라우드 컨테이너 -->
             <div class="grid-item wordcloud-container">
