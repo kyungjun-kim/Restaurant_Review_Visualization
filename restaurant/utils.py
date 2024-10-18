@@ -77,13 +77,16 @@ def make_chef_json(chef_instance):
             )
         good_reviews_list = []
         bad_reviews_list = []
+        good_words = []
         # 좋은 리뷰와 안 좋은 리뷰 확인
         for good_review in restaurant.reviews.filter(review_category='good'):
             good_reviews_list.append(good_review.review_text)
         for bad_review in restaurant.reviews.filter(review_category='bad'):
             bad_reviews_list.append(bad_review.review_text)
-        reviews.append(make_wordcloud(good_reviews_list, font_path, 300, stopwords_path))
-        reviews.append(make_wordcloud(bad_reviews_list, font_path, 300, stopwords_path))
+        
+        reviews.append(make_wordcloud(good_reviews_list, font_path, 300, good_words, stopwords_path))
+        print(good_words)
+        reviews.append(make_wordcloud(bad_reviews_list, font_path, 300, good_words, stopwords_path))
         font_prop = font_manager.FontProperties(fname=font_path)
 
         fig, ax = plt.subplots(figsize=(5,5))
