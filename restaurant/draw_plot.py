@@ -12,19 +12,29 @@ from konlpy.tag import Hannanum
 import io, os, sys
 import base64
 
+from typing import List
+
 from restaurant.models import *
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 font_path = os.path.join('restaurant/static/fonts/D2Coding-Ver1.3.2-20180524.ttc')
 
 
-def make_wordcloud(reviews_text, font_path):
-    if not reviews_text.strip():  
+def make_wordcloud(reviews_list:List[str], font_path:str, num_each_fold:int):
+    if not reviews_list.strip():  
         return None
     else:
         # 형태소 분석을 통해 명사 추출
         hannanum = Hannanum()
-        nouns = hannanum.nouns(reviews_text)
-        words = [noun for noun in nouns if len(noun) > 1]
+        noun_list = []
+        total_num = len(reviews_list)
+        for i in range(total_num//num_each_fold + 1):
+            reviews_text = ""
+            for s in reviews_list[i*num_each_fold:(i+1)*num_each_fold]:
+                reviews_text += s[0] + ' '
+            nouns = hannanum.nouns(reviews_text)
+            noun_list.extend(nouns)
+        
+        words = [noun for noun in noun_list if len(noun) > 1]
         
         # 리뷰 없는 경우 예외처리
         if len(''.join(words).strip()) == 0:
