@@ -82,8 +82,8 @@ def make_chef_json(chef_instance):
             good_reviews_list.append(good_review.review_text)
         for bad_review in restaurant.reviews.filter(review_category='bad'):
             bad_reviews_list.append(bad_review.review_text)
-        reviews.append(make_wordcloud(good_reviews_list, font_path, 300))
-        reviews.append(make_wordcloud(bad_reviews_list, font_path, 300))
+        reviews.append(make_wordcloud(good_reviews_list, font_path, 300, stopwords_path))
+        reviews.append(make_wordcloud(bad_reviews_list, font_path, 300, stopwords_path))
         font_prop = font_manager.FontProperties(fname=font_path)
 
         fig, ax = plt.subplots(figsize=(5,5))
