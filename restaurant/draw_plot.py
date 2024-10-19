@@ -4,6 +4,8 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib import font_manager
 import pandas as pd
+from PIL import Image
+import numpy as np
 
 # 문장에서 명사를 추출하는 형태소 분석 라이브러리
 import jpype
@@ -14,19 +16,26 @@ import base64
 from typing import List, Union
 from collections import Counter
 from restaurant.models import *
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 font_path = os.path.join('restaurant/static/fonts/D2Coding-Ver1.3.2-20180524.ttc')
 
 
-def make_wordcloud(reviews_list: List[str], font_path: str, num_each_fold: int, good_words:List[str], stopwords_path:Union[str, None]=None) -> Union[str, None]:
+def make_wordcloud(reviews_list: List[str], font_path: str, num_each_fold: int,
+                    stopwords_path:Union[str, None]=None,
+                    mask_img_path:Union[str, None]=None) -> Union[str, None]:
     if not reviews_list:
         return None
     
     if stopwords_path:
-        stopwords = open(stopwords_path, 'r', encoding='utf-8')
+        stopwords = open(stopwords_path, 'r')
         stopwords_list = [line.split('\n')[0] for line in stopwords.readlines()]
         stopwords.close()
-
+    
+    mask_img_data = None
+    if mask_img_path:
+        mask_img_data = np.array(Image.open(mask_img_path))
+    
     # 형태소 분석을 통해 명사 추출 및 카운팅
     hannanum = Hannanum()
     noun_counter = Counter()
@@ -41,12 +50,13 @@ def make_wordcloud(reviews_list: List[str], font_path: str, num_each_fold: int, 
                 reviews_text += s + ' ' 
             
         nouns = hannanum.nouns(reviews_text)
+        
         if not good_words:
             for noun in nouns:
                 good_words.append(noun)
         else:
             nouns = [noun for noun in nouns if noun not in good_words]
-
+        
         filtered_nouns = [noun for noun in nouns if len(noun) > 1]
         if stopwords_path:
             filtered_nouns = [nouns for nouns in filtered_nouns if nouns not in stopwords_list]
@@ -61,7 +71,8 @@ def make_wordcloud(reviews_list: List[str], font_path: str, num_each_fold: int, 
         font_path=font_path,
         background_color='white',
         width=500,
-        height=500
+        height=500,
+        mask=mask_img_data,
     ).generate_from_frequencies(noun_counter)  # 카운터로부터 워드클라우드 생성
 
     # 이미지로 저장

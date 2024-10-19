@@ -20,6 +20,8 @@ from restaurant.models import *
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 font_path = os.path.join('restaurant/static/fonts/D2Coding-Ver1.3.2-20180524.ttc')
 stopwords_path = os.path.join('restaurant/static/txt/stopwords.txt')
+thumb_up_img_path = os.path.join('restaurant/static/png/thumb_up.png')
+thumb_down_img_path = os.path.join('restaurant/static/png/thumb_down.png')
 
 
 def make_chef_json(chef_instance):
@@ -84,9 +86,9 @@ def make_chef_json(chef_instance):
         for bad_review in restaurant.reviews.filter(review_category='bad'):
             bad_reviews_list.append(bad_review.review_text)
         
-        reviews.append(make_wordcloud(good_reviews_list, font_path, 300, good_words, stopwords_path))
+        reviews.append(make_wordcloud(good_reviews_list, font_path, 300, good_words, stopwords_path, thumb_up_img_path))
         print(good_words)
-        reviews.append(make_wordcloud(bad_reviews_list, font_path, 300, good_words, stopwords_path))
+        reviews.append(make_wordcloud(bad_reviews_list, font_path, 300, good_words, stopwords_path, thumb_down_img_path))
         font_prop = font_manager.FontProperties(fname=font_path)
 
         fig, ax = plt.subplots(figsize=(5,5))
