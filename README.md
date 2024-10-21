@@ -13,3 +13,17 @@
 
 # main화면 확인
     - 127.0.0.1:8000/restaurant
+
+<br>
+![main](docs/main.png)
+
+<br>
+![detail1](docs/detail1.png)
+
+<br>
+![detail2](docs/detail2.png)
+
+<br>
+![detail3](docs/detail3.png)
+
+
