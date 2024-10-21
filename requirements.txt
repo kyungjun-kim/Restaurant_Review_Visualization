@@ -3,5 +3,7 @@ matplotlib
 django
 selenium
 konlpy
+jpype1
 webdriver-manager
 bs4
+pytest
