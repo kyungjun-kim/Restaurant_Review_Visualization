@@ -21,14 +21,14 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 font_path = os.path.join('restaurant/static/fonts/D2Coding-Ver1.3.2-20180524.ttc')
 
 
-def make_wordcloud(reviews_list: List[str], font_path: str, num_each_fold: int,
+def make_wordcloud(reviews_list: List[str], font_path: str, num_each_fold: int, good_words: List[str],
                     stopwords_path:Union[str, None]=None,
                     mask_img_path:Union[str, None]=None) -> Union[str, None]:
     if not reviews_list:
         return None
     
     if stopwords_path:
-        stopwords = open(stopwords_path, 'r')
+        stopwords = open(stopwords_path, 'r', encoding='utf-8')
         stopwords_list = [line.split('\n')[0] for line in stopwords.readlines()]
         stopwords.close()
     
